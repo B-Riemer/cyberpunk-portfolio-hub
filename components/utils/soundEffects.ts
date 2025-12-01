@@ -39,15 +39,17 @@ export function playNodeClickSound() {
     osc2.start(now + 0.02);
     osc2.stop(now + 0.1);
     
-    // Clean up
+    // FIX: Keine State-Prüfung mehr an OscillatorNodes, da TypeScript das blockiert.
     osc1.onended = () => {
-      if (osc2.state === 'finished') {
-        audioContext.close();
-      }
-    };
-    osc2.onended = () => {
-      if (osc1.state === 'finished') {
-        audioContext.close();
+      try {
+        // Wir warten kurz (100ms), um sicherzugehen, dass osc2 auch fertig ist
+        setTimeout(() => {
+          if (audioContext.state !== 'closed') {
+            audioContext.close();
+          }
+        }, 100);
+      } catch (e) {
+        console.error("Audio cleanup error", e);
       }
     };
   } catch (error) {
