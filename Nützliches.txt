@@ -1,0 +1,14 @@
+numerischen Pixelwert ermitteln:
+Konsole:
+let pageX, pageY; document.onmousemove=(e)=>{pageX=e.pageX;pageY=e.pageY;}
+Kopiere das korrigierte Skript von oben.
+
+Füge es in die Konsole ein und drücke Enter. (Es sollte undefined oder die Rückruffunktion zurückgeben – das ist normal.)
+
+Bewege die Maus über das Browserfenster. Die Variablen werden nun im Hintergrund aktualisiert.
+
+Gib jetzt pageX ein und drücke Enter.
+
+Gib danach pageY ein und drücke Enter.
+
+Jetzt solltest du die korrekten numerischen Pixelwerte sehen!

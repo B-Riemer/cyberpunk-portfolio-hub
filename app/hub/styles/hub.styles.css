@@ -1,0 +1,166 @@
+/* Hub Page - Neural MindHub Styles */
+/* Diese Styles sind ausschließlich für die Hub-Seite */
+
+.hub-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.hub-background-contain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 0;
+}
+
+.hub-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* Node Button Animations */
+.node-button {
+  cursor: pointer;
+  user-select: none;
+}
+
+.node-pulse {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+.node-pulse-outer {
+  animation: pulse-glow-outer 1.5s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.node-label {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.node-button:hover .node-label {
+  opacity: 1 !important;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.node-button:hover .node-pulse {
+  animation: pulse-glow-intense 0.8s ease-in-out infinite;
+}
+
+.node-button:hover .node-pulse-outer {
+  animation: pulse-glow-outer-intense 0.8s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.node-button:hover .node-connection-line {
+  opacity: 0.8 !important;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes pulse-glow-outer {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+@keyframes pulse-glow-intense {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes pulse-glow-outer-intense {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+/* Overlay Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100px) translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(-50%);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.4s ease-out;
+}
+
+/* Neon Text Effect */
+.neon-text {
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor,
+    0 0 20px currentColor;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 255, 0.5);
+}
+

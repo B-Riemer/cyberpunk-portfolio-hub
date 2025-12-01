@@ -1,15 +1,14 @@
+/* src/app/globals.css */
+
 @import "tailwindcss";
+
+/* Fügen Sie hier alle Ihre @theme oder @layer styles hinzu */
+
+/* Entfernen Sie alle alten @tailwind base/components/utilities Direktiven! */
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +21,372 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-orbitron), Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .neon-cyan {
+    color: #00ffff;
+    text-shadow: 
+      0 0 5px #00ffff,
+      0 0 10px #00ffff,
+      0 0 15px #00ffff,
+      0 0 20px #00ffff;
+  }
+  
+  .neon-pink {
+    color: #ff00ff;
+    text-shadow: 
+      0 0 5px #ff00ff,
+      0 0 10px #ff00ff,
+      0 0 15px #ff00ff,
+      0 0 20px #ff00ff;
+  }
+  
+  .neon-blue {
+    color: #0080ff;
+    text-shadow: 
+      0 0 5px #0080ff,
+      0 0 10px #0080ff,
+      0 0 15px #0080ff,
+      0 0 20px #0080ff;
+  }
+  
+  .neon-border-cyan {
+    border: 2px solid #00ffff;
+    box-shadow: 
+      0 0 5px #00ffff,
+      0 0 10px #00ffff,
+      inset 0 0 5px #00ffff;
+  }
+  
+  .neon-border-pink {
+    border: 2px solid #ff00ff;
+    box-shadow: 
+      0 0 5px #ff00ff,
+      0 0 10px #ff00ff,
+      inset 0 0 5px #ff00ff;
+  }
+  
+  .neon-border-blue {
+    border: 2px solid #0080ff;
+    box-shadow: 
+      0 0 5px #0080ff,
+      0 0 10px #0080ff,
+      inset 0 0 5px #0080ff;
+  }
+  
+  /* Trapezform Utilities für HubCard - Perspektivische Korrektur */
+  .trapezoid-left {
+    /* Links: Konvergiert zur rechten Seite/Mitte (Oben geht runter, Unten geht hoch) */
+    clip-path: polygon(0% 0%, 90% 10%, 90% 90%, 0% 100%);
+  }
+  
+  .trapezoid-right {
+    /* Rechts: Konvergiert zur linken Seite/Mitte (Oben geht runter, Unten geht hoch) */
+    clip-path: polygon(10% 10%, 100% 0%, 100% 100%, 10% 90%);
+  }
+  
+  /* Neon Glow Effect Utility */
+  .neon-glow {
+    box-shadow: 0 0 10px #f0f, 0 0 20px #0ff, 0 0 30px #f0f;
+  }
+  
+  /* Doppelter Neon-Glow für holografische Bedienelemente */
+  .neon-double-glow {
+    /* Innerer subtiler Glow (pink/blau) */
+    box-shadow: 
+      inset 0 0 5px rgba(255, 0, 255, 0.5), /* Pink inner */
+      inset 0 0 10px rgba(0, 255, 255, 0.5), /* Cyan inner */
+      /* Äußerer diffuser Glow (Verbindung zur Server-Ästhetik) */
+      0 0 15px rgba(255, 0, 255, 0.7),
+      0 0 25px rgba(0, 255, 255, 0.5);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Orbitron-Schriftart für futuristische Typografie */
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  /* Subtiler Backdrop-Blur für Glaskörper-Effekt */
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+  
+  /* Text-Rotation für Trapez-Buttons: Parallel zu oberen Rändern */
+  .text-tilt-left {
+    /* Links: Obere Kante von (0%, 0%) zu (90%, 10%) = ~6.34° nach rechts unten */
+    transform: rotate(6.34deg);
+    transform-origin: left top;
+  }
+  
+  .text-tilt-right {
+    /* Rechts: Obere Kante von (10%, 10%) zu (100%, 0%) = ~-6.34° nach rechts oben */
+    transform: rotate(-6.34deg);
+    transform-origin: left top;
+  }
+  
+  /* Text-Rotation für untere Zeile: Parallel zu unteren Rändern */
+  /* Links: Untere Kante von (0%, 100%) zu (90%, 95.2%) = arctan(4.8/90) ≈ 3.05° */
+  .text-tilt-bottom-left {
+    transform: rotate(-3.05deg);
+    transform-origin: left bottom;
+  }
+  
+  /* Rechts: Untere Kante variiert je nach Button, Durchschnitt ≈ 2° */
+  .text-tilt-bottom-right {
+    transform: rotate(2deg);
+    transform-origin: left bottom;
+  }
+  
+  /* Spezifische Rotationen für verschiedene Button-Orders */
+  .text-tilt-bottom-right-order4 {
+    /* Order 4: arctan(2.88/90) ≈ 1.83° */
+    transform: rotate(1.83deg);
+    transform-origin: left bottom;
+  }
+  
+  .text-tilt-bottom-right-order5 {
+    /* Order 5: arctan(3.16/90) ≈ 2.01° */
+    transform: rotate(2.01deg);
+    transform-origin: left bottom;
+  }
+  
+  .text-tilt-bottom-right-order6 {
+    /* Order 6: arctan(3.596/90) ≈ 2.29° */
+    transform: rotate(2.29deg);
+    transform-origin: left bottom;
+  }
+  
+  /* Waagerechte Zeile (mittlere Zeile) */
+  .text-horizontal {
+    transform: rotate(0deg);
+  }
+  
+  /* Neon-Border-Effekt für HubCard Buttons - Leichter leuchtender Rahmen */
+  .neon-border-card {
+    border: 2px solid rgba(0, 255, 255, 0.8) !important;
+    box-shadow: 
+      0 0 5px rgba(0, 255, 255, 1),
+      0 0 10px rgba(0, 255, 255, 0.7),
+      0 0 15px rgba(0, 255, 255, 0.5),
+      inset 0 0 5px rgba(0, 255, 255, 0.4);
+    animation: border-glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes border-glow {
+    0% {
+      border-color: rgba(0, 255, 255, 0.8);
+      box-shadow: 
+        0 0 5px rgba(0, 255, 255, 1),
+        0 0 10px rgba(0, 255, 255, 0.7),
+        0 0 15px rgba(0, 255, 255, 0.5),
+        inset 0 0 5px rgba(0, 255, 255, 0.4);
+    }
+    100% {
+      border-color: rgba(0, 255, 255, 1);
+      box-shadow: 
+        0 0 8px rgba(0, 255, 255, 1),
+        0 0 15px rgba(0, 255, 255, 0.8),
+        0 0 20px rgba(0, 255, 255, 0.6),
+        inset 0 0 8px rgba(0, 255, 255, 0.5);
+    }
+  }
+  
+  /* Overlay Animationen */
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .animate-slide-in-right {
+    animation: slide-in-right 0.4s ease-out;
+  }
+  
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%) translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0) translateY(-50%);
+      opacity: 1;
+    }
+  }
+  
+  /* Terminal/Code-Bildschirm Effekte */
+  .terminal-screen {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+  }
+  
+  /* Animierter Code-Hintergrund */
+  .terminal-code-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    font-family: 'Courier New', monospace;
+    font-size: 7px;
+    line-height: 1.3;
+    color: #00ff41;
+    padding: 4px;
+    overflow: hidden;
+    white-space: pre;
+    pointer-events: none;
+    animation: code-scroll 20s linear infinite;
+  }
+  
+  @keyframes code-scroll {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+  
+  /* Terminal Scanlines */
+  .terminal-scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 255, 65, 0.03) 0px,
+      rgba(0, 255, 65, 0.03) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+    animation: scanline-move 8s linear infinite;
+  }
+  
+  @keyframes scanline-move {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+  
+  /* Blinkender Terminal-Cursor - größer und deutlicher */
+  .terminal-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background: #00ff41;
+    box-shadow: 
+      0 0 4px #00ff41,
+      0 0 8px #00ff41;
+    animation: cursor-blink 0.8s infinite;
+    margin-left: 3px;
+    vertical-align: middle;
+  }
+  
+  /* Inline Cursor für Code-Eingabe */
+  .terminal-cursor-inline {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: #00ff41;
+    box-shadow: 0 0 3px #00ff41;
+    animation: cursor-blink 0.8s infinite;
+    margin-left: 2px;
+    vertical-align: middle;
+  }
+  
+  @keyframes cursor-blink {
+    0%, 45% {
+      opacity: 1;
+    }
+    46%, 100% {
+      opacity: 0.3;
+    }
+  }
+  
+  /* Terminal-Glow für Text - reduziert für bessere Lesbarkeit */
+  .terminal-text-glow {
+    text-shadow: 
+      0 0 2px rgba(0, 255, 255, 0.8),
+      0 0 4px rgba(0, 255, 255, 0.6);
+  }
+  
+  /* Animierter Cursor im Code-Hintergrund */
+  .terminal-code-bg::after {
+    content: '_';
+    color: #00ff41;
+    animation: code-cursor-blink 1s infinite;
+    box-shadow: 0 0 4px #00ff41;
+  }
+  
+  @keyframes code-cursor-blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+}
+
+/* Scrollbar Hide Utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Swipe Hint Animation */
+@keyframes bounce-x {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+}
+
+@keyframes bounce-x-reverse {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+.animate-bounce-x {
+  animation: bounce-x 1.5s ease-in-out infinite;
+}
+
+.animate-bounce-x-reverse {
+  animation: bounce-x-reverse 1.5s ease-in-out infinite;
+}
+
+/* Pulsierender Glow-Effekt für Terminal-Buttons */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8), 0 0 50px rgba(0, 255, 255, 0.5), 0 0 75px rgba(0, 255, 255, 0.3);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }

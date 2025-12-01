@@ -1,0 +1,20 @@
+/* AboutCard Component Styles */
+
+.about-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #22d3ee; /* cyan-400 */
+  text-shadow: 
+    0 0 5px rgba(34, 211, 238, 0.8),
+    0 0 10px rgba(34, 211, 238, 0.6),
+    0 0 15px rgba(34, 211, 238, 0.4);
+  margin-bottom: 1rem;
+}
+
+.about-card-text {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgb(165, 243, 252); /* cyan-200 */
+}
+
