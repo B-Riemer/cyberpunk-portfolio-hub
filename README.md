@@ -2,7 +2,7 @@
 
 > An immersive, spatial portfolio experience built with Next.js, Tailwind CSS, and AI integration.
 
-![Project Screenshot](/public/screenshot-desktop.jpg) 
+![Project Screenshot](public/screenshot-desktop.jpg) 
 *(Tipp: Mach einen schönen Screenshot vom HUB und speichere ihn als screenshot-desktop.jpg im public Ordner)*
 
 ## 🚀 Features
