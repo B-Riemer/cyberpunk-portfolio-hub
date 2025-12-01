@@ -39,17 +39,16 @@ export function playNodeClickSound() {
     osc2.start(now + 0.02);
     osc2.stop(now + 0.1);
     
-    // Clean up
-    osc1.onended = () => {
-      if (osc2.state === 'finished') {
+    // Cleanup: schließe den AudioContext, nachdem beide Töne sicher abgespielt wurden
+    // Gesamtdauer des Sounds ab "now" bis zum Ende des zweiten Tons
+    const totalDurationSeconds = 0.1; // letzter stop-Zeitpunkt (now + 0.1)
+    const bufferMs = 100; // kleiner Puffer in Millisekunden
+
+    setTimeout(() => {
+      if (audioContext.state !== 'closed') {
         audioContext.close();
       }
-    };
-    osc2.onended = () => {
-      if (osc1.state === 'finished') {
-        audioContext.close();
-      }
-    };
+    }, totalDurationSeconds * 1000 + bufferMs);
   } catch (error) {
     console.debug('Audio context not available:', error);
   }
