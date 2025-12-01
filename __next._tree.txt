@@ -1,0 +1,10 @@
+1:"$Sreact.fragment"
+2:I[25454,["/_next/static/chunks/bb28180b6686f318.js"],"ViewportBoundary"]
+4:I[25454,["/_next/static/chunks/bb28180b6686f318.js"],"MetadataBoundary"]
+5:"$Sreact.suspense"
+7:I[98649,["/_next/static/chunks/bb28180b6686f318.js"],"IconMark"]
+:HL["/_next/static/chunks/7a5ea5e4c19e5c5f.css","style"]
+:HL["/_next/static/media/0acc7fdf55eb3220-s.p.532ccaa1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"buildId":"YOkOouSqdR8Sxo_LPysJF","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"head":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isHeadPartial":false,"staleTime":300}
+3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:[["$","title","0",{"children":"Björn Riemer | Creative Developer & AI Architect"}],["$","meta","1",{"name":"description","content":"Interactive Portfolio featuring Cyberpunk Aesthetics, AI Integration, and Fullstack Projects."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","3",{"rel":"icon","href":"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>"}],["$","$L7","4",{}]]
