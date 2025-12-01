@@ -143,7 +143,6 @@ export default function NodeButton({
         style={{
           opacity: isActive ? 1 : 0.7,
           WebkitTextStroke: '2px rgba(0, 0, 0, 0.8)',
-          textStroke: '2px rgba(0, 0, 0, 0.8)',
           paintOrder: 'stroke fill',
           textShadow: `
             -1px -1px 0 rgba(0, 0, 0, 0.8),
