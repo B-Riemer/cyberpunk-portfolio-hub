@@ -109,29 +109,49 @@ export default function ChatBot({ vorname, nachname, geschlecht, position }: Cha
       ]);
     } catch (error) {
       console.error("Chat Error:", error);
-      let errorMessage = "Entschuldigung, es gab einen Fehler. ";
-      
-      if (error instanceof Error) {
-        if (error.message.includes("quota") || error.message.includes("Guthaben") || error.message.includes("billing")) {
-          errorMessage += "Das OpenAI-Konto hat kein Guthaben mehr. Bitte überprüfe dein Billing und füge Guthaben hinzu: https://platform.openai.com/account/billing";
-        } else if (error.message.includes("OPENAI_API_KEY") || error.message.includes("API key") || error.message.includes("AUTH_ERROR")) {
-          errorMessage += "Der API-Schlüssel ist nicht konfiguriert oder ungültig. Bitte kontaktiere den Administrator.";
-        } else if (error.message.includes("Failed to fetch") || error.message.includes("NetworkError")) {
-          errorMessage += "Netzwerkfehler. Bitte überprüfe deine Internetverbindung.";
-        } else if (error.message.includes("RATE_LIMIT")) {
-          errorMessage += "Zu viele Anfragen. Bitte warte einen Moment und versuche es erneut.";
-        } else {
-          errorMessage += error.message;
+
+      // Static Mode / Fallback für nicht erreichbare API (z.B. GitHub Pages, 404 auf /api/chat)
+      const isStaticModeError =
+        error instanceof Error &&
+        (error.message.includes("404") ||
+          error.message.includes("Failed to fetch") ||
+          error.message.includes("NetworkError"));
+
+      if (isStaticModeError) {
+        console.log("API Error (Static Mode detected):", error);
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content:
+              "// SYSTEM NOTICE: Running in Static Showcase Mode. AI Core offline. Please clone the repository and run locally for full AI functionality.",
+          },
+        ]);
+      } else {
+        let errorMessage = "Entschuldigung, es gab einen Fehler. ";
+
+        if (error instanceof Error) {
+          if (error.message.includes("quota") || error.message.includes("Guthaben") || error.message.includes("billing")) {
+            errorMessage += "Das OpenAI-Konto hat kein Guthaben mehr. Bitte überprüfe dein Billing und füge Guthaben hinzu: https://platform.openai.com/account/billing";
+          } else if (error.message.includes("OPENAI_API_KEY") || error.message.includes("API key") || error.message.includes("AUTH_ERROR")) {
+            errorMessage += "Der API-Schlüssel ist nicht konfiguriert oder ungültig. Bitte kontaktiere den Administrator.";
+          } else if (error.message.includes("Failed to fetch") || error.message.includes("NetworkError")) {
+            errorMessage += "Netzwerkfehler. Bitte überprüfe deine Internetverbindung.";
+          } else if (error.message.includes("RATE_LIMIT")) {
+            errorMessage += "Zu viele Anfragen. Bitte warte einen Moment und versuche es erneut.";
+          } else {
+            errorMessage += error.message;
+          }
         }
+        
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content: errorMessage,
+          },
+        ]);
       }
-      
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content: errorMessage,
-        },
-      ]);
     } finally {
       setIsLoading(false);
     }
