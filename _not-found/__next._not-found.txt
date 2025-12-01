@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
 2:I[46984,["https://b-riemer.github.io/cyberpunk-portfolio-hub/_next/static/chunks/bb28180b6686f318.js"],"default"]
 3:I[91242,["https://b-riemer.github.io/cyberpunk-portfolio-hub/_next/static/chunks/bb28180b6686f318.js"],"default"]
-0:{"buildId":"zA0UzDshzEP23OWJKCTYM","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"QHAZYAn5s1K5oG-m65owc","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
