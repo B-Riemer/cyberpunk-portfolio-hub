@@ -1,7 +1,12 @@
 self.__BUILD_MANIFEST = {
   "__rewrites": {
     "afterFiles": [],
-    "beforeFiles": [],
+    "beforeFiles": [
+      {
+        "source": "/cyberpunk-portfolio-hub//_next/:path+",
+        "destination": "/cyberpunk-portfolio-hub/_next/:path+"
+      }
+    ],
     "fallback": []
   },
   "sortedPages": [
